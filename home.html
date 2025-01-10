@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KLUG</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+  <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  background-color: #ffffff;
+  font-family: "Ubuntu", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+h1 {
+  color: #007bff;
+}
+/* Header Styles */
+.header {
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to right, #46074e, #197bd0 80%);
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header .logo {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header .logo h2 {
+  color: #ffffff;
+  text-transform: lowercase;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.header .logo::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Jarak garis dari teks */
+  left: 0;
+  width: 100%;
+  height: 3px; /* Ketebalan garis */
+  background-color: white;
+}
+
+.header nav {
+  display: flex;
+  gap: 20px;
+}
+
+.header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0 10px;
+}
+
+.header nav a:hover {
+  text-decoration: underline;
+}
+
+.header .search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header .search input {
+  border: none;
+  border-bottom: 2px solid rgba(253, 246, 246, 0.559);
+  background: transparent;
+  color: white;
+  outline: none;
+  padding: 5px;
+}
+
+.header .search input::placeholder {
+  color: rgba(253, 246, 246, 0.559);
+  font-size: 15px;
+}
+
+.header .btn-primary {
+  background-color: #195395;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  width: 150px;
+  height: 40px;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.header .btn-primary:hover {
+  background-color: #0d3b6b;
+}
+
+
+/* Hero Section Styles */
+.back {
+  position: relative;
+  margin-top: 80px; 
+}
+
+.back img {
+  width: 100%;
+  height: auto;
+}
+
+.back .overlay {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  background: linear-gradient(to right, #46074e, #197bd0);
+  padding: 20px 30px;
+  border-radius: 10px;
+  color: white;
+  width: 621px;
+  height: 120px;
+  opacity: 0.8;
+  
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.overlay-content h2 {
+  font-size: 20px;
+  margin-right: 20px;
+  flex-grow: 1;
+  max-width: 400px; 
+}
+
+.btn-selengkapnya {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .back .overlay {
+    width: 50%; 
+    height: auto;
+    min-height: 120px;
+    left: 5%;
+    padding: 15px;
+  }
+
+  .overlay-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .overlay-content h2 {
+    margin-right: 0;
+    margin-bottom: 15px;
+    max-width: 100%;
+  }
+
+  .btn-selengkapnya {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .back .overlay {
+    width: 95%;
+    left: 2.5%;
+  }
+
+  .overlay-content h2 {
+    font-size: 16px;
+  }
+}
+
+/* About */
+.about {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #ffffff;
+}
+.about h2 {
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 20px;
+  color: #4a4a4a;
+}
+.about p {
+  font-size: 18px;
+  line-height: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #4a4a4a;
+  font-weight: 300;
+}
+.line {
+  width: 1140px;
+  background-color: black;
+  border: none;
+  height: 10px;
+}
+
+
+/* layanan kami / services */
+.services h2,
+.partners h2 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #4a4a4a;
+  margin-bottom: 30px;
+}
+
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.service-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover img {
+  transform: scale(1.1);
+}
+
+.service-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #46074ee7 8%, #197bd000 40%);
+  display: flex;
+  justify-content: flex-start; 
+  align-items: flex-end; 
+  padding: 20px;
+}
+
+.service-card .overlay h5 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  text-align: left;
+}
+
+
+
+/* Partners */
+.mitra-section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.section-title {
+  margin-bottom: 40px;
+  color: #333;
+  font-size: 24px;
+  position: relative;
+  font-family: "Ubuntu", serif;
+  font-weight: 400;
+}
+
+
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+}
+
+.mitra-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.mitra-item {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.mitra-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.mitra-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.mitra-item:hover img {
+  filter: grayscale(0%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mitra-wrapper {
+    gap: 20px;
+  }
+
+  .mitra-item {
+    width: 150px;
+    height: 120px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mitra-wrapper {
+    gap: 15px;
+  }
+
+  .mitra-item {
+    width: 120px;
+    height: 100px;
+    padding: 10px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
+/* Consultation */
+.consultation-section {
+  background: linear-gradient(to right, #46074e, #197bd0);
+  padding: 40px;
+  margin: 50px 10%; 
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px; 
+}
+
+.consultation-text {
+  flex: 1;
+  min-width: 300px; }
+
+.consultation-text h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.consultation-text p {
+  font-size: 16px;
+  opacity: 0.9;
+  font-family: "Ubuntu", serif;
+  font-weight: 300;
+}
+
+.consultation-btn {
+  color: white;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  border: 2px solid white;
+  transition: all 0.3s ease;
+  white-space: nowrap; 
+}
+
+.consultation-btn:hover {
+  background-color: white;
+  color: #46074e;
+}
+
+/* Media Query untuk Responsivitas */
+@media screen and (max-width: 768px) {
+  .consultation-section {
+    flex-direction: column;
+    text-align: center;
+    margin: 50px 5%;
+    padding: 30px 20px;
+  }
+
+  .consultation-text {
+    margin-bottom: 20px;
+  }
+
+  .consultation-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+
+
+/* Artikel */
+.container-artikel {
+  padding: auto;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+
+.artikel-sub {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #333;
+  margin-top: 10%;
+  font-weight: normal;
+}
+
+
+.artikel {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+.artikel img {
+  width: 360px;
+  height: 195px; 
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+
+.artikel p {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #4a4a4a;
+  text-align: center; 
+  margin: 0 auto;
+  max-width: 360px; 
+}
+
+
+.container-btn {
+  height: auto; 
+  margin-top: 20px; 
+  margin-bottom: 50px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.btn-artikel {
+  width: 200px; 
+  height: 45px; 
+  padding: 0; 
+  border: none;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  border-radius: 23px;
+  background: linear-gradient(to right, #46074e, #197bd0);
+  cursor: pointer;
+  display: inline-block; 
+  text-align: center;
+  line-height: 45px; 
+}
+
+.btn-artikel::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  top: 1px;
+  bottom: 1px;
+  border-radius: 22.5px;
+  background-color: white;
+  z-index: -1;
+  transition: 200ms
+}
+.btn-layanan:hover::after {
+    background: white;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #46074e, #197bd0);
+}
+.btn-artikel:hover::before {
+  opacity: 50%;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  color: wheat;
+
+}
+.btn-artikel:hover::after{
+  color: white;
+}
+ 
+/* Hubungi Kami */
+.container-hub {
+  padding: auto;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.container-hub .hub-sub {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #4a4a4a;
+  margin-top: 10%;
+  font-weight: normal;
+}
+
+.container-hub h6 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #4a4a4a;
+  font-size: 18px;
+}
+
+.container-hub p {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #4a4a4a;
+  font-family: "Ubuntu", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; 
+  margin: 20px 0;
+}
+
+/* Updated button styles */
+.btn-lok, .btn-pesan {
+  width: 200px;
+  height: 45px;
+  padding: 0;
+  border: none;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  border-radius: 23px;
+  background: linear-gradient(to right, #46074e, #197bd0);
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  line-height: 45px;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-pesan {
+  background: linear-gradient(to right, #46074e, #197bd0);
+}
+
+.btn-pesan::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  top: 1px;
+  bottom: 1px;
+  border-radius: 22.5px;
+  background-color: white;
+  z-index: -1;
+  transition: 200ms;
+}
+
+.btn-layanan:hover::after {
+    all: unset;
+    content: "Artikel Lainnya";
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: brown;
+}
+
+
+
+
+.btn-pesan:hover::before {
+  opacity: 50%;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.btn-pesan:hover::after {
+  color: white;
+}
+
+.divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  width: 100%;
+  max-width: 1140px;
+  margin: 60px auto;
+  opacity: 0.5;
+}
+.footer {
+  background: linear-gradient(to right, #46074e, #197bd0);
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 60px;
+  width: 100%;
+  height: 80px;
+}
+
+.footer p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: white;
+  opacity: 0.9;
+}
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="logo">
+        <h2>Klug</h2>
+      </div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="tentangkami.html">Tentang Kami</a>
+        <a href="#">Layanan Kami</a>
+        <a href="#">Artikel</a>
+        <a href="hubungikami.html">Hubungi Kami</a>
+      </nav>
+      <div class="search">
+        <i class="fa fa-search" style="font-size:14px; color:rgba(253, 246, 246, 0.559) ;"></i>
+        <input type="text" placeholder="Ketik pencarian" />
+    </div>
+    
+        <button class="btn btn-primary">DAFTAR ON-LINE</button>
+      </div>
+    </header>
+
+    <div class="back">
+      <img src="images/picgedung.png" alt="Hero Image" />
+      <div class="overlay">
+        <div class="overlay-content">
+          <h2>INGIN KULIAH DAN BERKARIR DI LUAR NEGERI ?</h2>
+          <button class="btn-selengkapnya">SELENGKAPNYA</button>
+        </div>
+      </div>
+    </div>
+    <section class="about">
+      <h2>TENTANG KAMI</h2>
+      <p>
+        INAKLUG adalah Konsultan Pendidikan Internasional di Indonesia yang
+        sudah memberangkatkan lebih dari 3000 mahasiswa Indonesia yang ingin
+        kuliah, perjalanan wisata dan berkarir di negara maju di dunia.
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+
+    <section class="services">
+      <h2 class="text-center my-4">LAYANAN KAMI</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="service-card">
+              <img src="images/bachelor.png" alt="Studi S1 - Bachelor">
+              <div class="overlay">
+                <h5>Studi S1 - Bachelor</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card">
+              <img src="images/master.png" alt="Studi S2 - Master">
+              <div class="overlay">
+                <h5>Studi S2 - Master</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card">
+              <img src="images/phd.png" alt="Studi S3 - Ph.D">
+              <div class="overlay">
+                <h5>Studi S3 - Ph.D</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card">
+              <img src="images/kursus.png" alt="Kursus Bahasa Asing">
+              <div class="overlay">
+                <h5>Kursus Bahasa Asing</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card">
+              <img src="images/studytour.png" alt="Study Tour">
+              <div class="overlay">
+                <h5>Study Tour</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card">
+              <img src="images/ausbildung.png" alt="Ausbildung">
+              <div class="overlay">
+                <h5>Ausbildung</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <section class="mitra-section">
+      <div class="container">
+        <h2 class="section-title">MITRA KAMI</h2>
+        <div class="mitra-wrapper">
+          <div class="mitra-item">
+            <img src="images/424aviation.png" alt="Mitra 1">
+          </div>
+          <div class="mitra-item">
+            <img src="images/standrew.png" alt="Mitra 2">
+          </div>
+          <div class="mitra-item">
+            <img src="images/htw.png" alt="Mitra 3">
+          </div>
+          <div class="mitra-item">
+            <img src="images/studygroup.png" alt="Mitra 4">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="consultation-section">
+      <div class="consultation-text">
+          <h2>Gratis Konseling Studi di Luar Negeri !!!</h2>
+          <p>Konsultasi seputar kuliah / bekerja di Luar Negeri</p>
+      </div>
+      <a href="#" class="consultation-btn">MULAI KONSULTASI</a>
+    </section>
+
+
+  <section class="artikel">
+    <div class="container-artikel">
+      <h2 class="artikel-sub">ARTIKEL TERBARU</h2>
+      <div class="row">
+        <div class="col-md-6 artikel">
+          <img src="images/artikel1.png" alt="Artikel 1" class="img-fluid">
+          <p>5 Fakta yang Harus Kamu Ketahui Sebelum Studi ke Jerman</p>
+        </div>
+        <div class="col-md-6 artikel">
+          <img src="images/artikel2.png" alt="Artikel 2" class="img-fluid">
+          <p>Uni Eropa Menghadapi Virus Korona</p>
+        </div>
+        <div class="col-md-6 artikel">
+          <img src="images/artikel3.png" alt="Artikel 3" class="img-fluid">
+          <p>Belajar Bahasa Jerman Bersama Goethe Institut</p>
+        </div>
+        <div class="col-md-6 artikel">
+          <img src="images/artikel4.png" alt="Artikel 4" class="img-fluid">
+          <p>Apa Itu Gates Cambridge? Yuk Cari Tahu</p>
+        </div>
+      </div>
+    </div>
+    <div class="container-btn">
+      <button class="btn-artikel" data="ARTIKEL LAINNYA"></button>
+    </div>
+  </section>
+  
+  <div class="divider"></div>
+
+
+  <section class="Hubungi Kami">
+    <div class="container-hub">
+      <h2 class="hub-sub">HUBUNGI KAMI</h2>
+      <h6>KANTOR PUSAT</h6>
+      <p>Gedung Ir. H. M. Suseno - Jl. R.P Soeroso No.6, Menteng, Jakarta Pusat 
+        <br> Phone : (+62 21) 398 38706 - Fax: (+62 21) 316 1701 
+        <br> Hotline: +6281519040071 / +62811998167
+      </p>
+    </div>
+    <div class="button-container">
+      <button class="btn-lok">LOKASI KAMI</button>
+       <a href="hubungi.html" button class="btn-pesan"></button></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+      <p>Copyright © 2020 - Inaklug Indonesia | Hak cipta dilindungi undang-undang</p>
+    </footer>
+  
+  </body>
+</html>
