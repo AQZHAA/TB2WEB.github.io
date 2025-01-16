@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami - Klug</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap">
+    <a href="hubungkami.html">Hubungi Kami</a>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 0;
+            background-color: #ffffff;
+            font-family: "Ubuntu", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .header {
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(to right, #46074e, #197bd0 80%);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .header .logo h2 {
+            color: #ffffff;
+            text-transform: lowercase;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0;
+        }
+        .header .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; /* Jarak garis dari teks */
+            left: 0;
+            width: 100%;
+            height: 3px; /* Ketebalan garis */
+            background-color: white;
+        }
+        .header nav {
+            display: flex;
+            gap: 20px;
+        }
+        .header nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0 10px;
+        }
+        .header nav a:hover {
+            text-decoration: underline;
+        }
+        .header .search {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .header .search input {
+            border: none;
+            border-bottom: 2px solid rgba(253, 246, 246, 0.559);
+            background: transparent;
+            color: white;
+            outline: none;
+            padding: 5px;
+        }
+        .header .search input::placeholder {
+            color: rgba(253, 246, 246, 0.559);
+            font-size: 15px;
+        }
+        .header .btn-primary {
+            background-color: #195395;
+            border: none;
+            color: white;
+            border-radius: 20px;
+            width: 150px;
+            height: 40px;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .header .btn-primary:hover {
+            background-color: #0d3b6b;
+        }
+        .hero {
+            position: relative;
+            margin-top: 80px;
+        }
+        .hero img {
+            width: 100%;
+            height: auto;
+        }
+        .hero .overlay {
+            position: absolute;
+            bottom: 20%;
+            left: 10%;
+            background: linear-gradient(to right, #46074e, #197bd0);
+            padding: 20px 30px;
+            border-radius: 10px;
+            color: white;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 50%;
+        }
+        .hero .overlay h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .hero .overlay .btn {
+            background-color: white;
+            color: #46074e;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .hero .overlay .btn:hover {
+            background-color: #197bd0;
+            color: white;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            color: #46074e;
+            margin-bottom: 20px;
+        }
+        .form-container .btn-primary {
+            background: linear-gradient(to right, #46074e, #197bd0);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+        }
+        .form-container .btn-primary:hover {
+            background: linear-gradient(to right, #197bd0, #46074e);
+        }
+        .location {
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        .location h3 {
+            color: #46074e;
+            margin-bottom: 20px;
+        }
+        .location p {
+            color: #4a4a4a;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .footer {
+            background: linear-gradient(to right, #46074e, #197bd0);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 50px;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h2>Klug</h2>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Tentang Kami</a>
+            <a href="#">Layanan Kami</a>
+            <a href="#">Artikel</a>
+            <a href="#">Hubungi Kami</a>
+        </nav>
+        <div class="search">
+            <input type="text" placeholder="Ketik pencarian">
+            <button class="btn btn-primary">Daftar On-line</button>
+        </div>
+    </header>
+
+    <div class="hero">
+        <img src="images/picgedung.png" alt="Hero Image">
+        <div class="overlay">
+            <h2>INGIN KULIAH DAN BERKARIR DI LUAR NEGERI?</h2>
+            <button class="btn">SELENGKAPNYA</button>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Kirim Pesan</h2>
+        <form action="submit_form.php" method="POST">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="name" class="form-label">Nama*</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nama lengkap Anda" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="email" class="form-label">E-Mail*</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Alamat email Anda" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="organization" class="form-label">Perusahaan/Organisasi</label>
+                    <input type="text" class="form-control" id="organization" name="organization" placeholder="Nama Perusahaan/Organisasi">
+                </div>
+                <div class="col-md-6">
+                    <label for="phone" class="form-label">Telepon</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Nomor telepon Anda">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Isi Pesan*</label>
+                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Isi pesan Anda" required></textarea>
+            </div>
+            <div class="mb-3">
+                <div class="g-recaptcha" data-sitekey="your-site-key"></div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="location">
+        <h3>LOKASI KAMI</h3>
+        <p><strong>KANTOR PUSAT</strong><br>Gedung Ir. H. M. Suseno - Jl. R.P Soeroso No.6, Menteng, Jakarta Pusat<br>Phone: (+62 21) 398 38706 - Fax: (+62 21) 316 1701<br>Hotline: +6281519040071 / +62811998167</p>
+        <p><strong>KANTOR CABANG</strong><br>Gedung Ir. H. M. Suseno - Jl. R.P Soeroso No.6, Menteng, Jakarta Pusat<br>Phone: (+62 21) 398 38706 - Fax: (+62 21) 316 1701<br>Hotline: +6281519040071 / +62811998167</p>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 - Klug Indonesia | Hak cipta dilindungi undang-undang</p>
+    </footer>
+
+    <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+
+</body>
+</html>
